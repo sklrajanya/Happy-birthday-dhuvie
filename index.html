@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dhuvie 🤍</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff1f5, #fef6e4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 900px;
+}
+
+/* Cake */
+.cake {
+    font-size: 120px;
+    cursor: pointer;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 18px;
+    animation: rise 6s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Content */
+.content {
+    display: none;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 42px;
+    color: #e26d5c;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 240px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-bottom: 25px;
+}
+
+.message {
+    background: rgba(255,255,255,0.85);
+    padding: 25px;
+    border-radius: 20px;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.signature {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: 600;
+    color: #e26d5c;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    img { width: 200px; }
+    .cake { font-size: 100px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="cake" id="cake">🎂</div>
+
+    <div class="content" id="content">
+        <h1>Happy Birthday Dhuvie 🤍</h1>
+        <img src="dhuv.jpg" alt="Dhuv">
+        <div class="message" id="typedText"></div>
+        <div class="signature">— Yours, Raya 🤍</div>
+    </div>
+</div>
+
+<script>
+/* Reveal on cake click */
+const cake = document.getElementById("cake");
+const content = document.getElementById("content");
+
+cake.addEventListener("click", () => {
+    cake.style.display = "none";
+    content.style.display = "block";
+    typeText();
+    heartsInterval();
+});
+
+/* Typing effect */
+const text = `First of all, Happy Happy Birthday dhuv.
+
+As I'm trying to write for you, i don't know what to write exactly there is a lot to say to you a lot of things I want to say but there are not much words in any language that can help me describe my feelings.
+
+1st September 2025 that's the first time i talked to you basically I replied to your story and from there onwards we became close. Close? Nah it's as if despite being almost 2 hours away from you I feel like i live under your skin.
+
+There's this pull in my chest, towards you dhruvie as if there's a thread that bonds my soul to you does it sound fictional ? Well then be it.
+
+It feels unreal to be with you, to laugh with you on your silly dumb jokes, to get mad at your constant ragebaits, to shed tears when i see you being naraz at me.
+
+I've given you 100 reasons but these are nothing. Just words it's the way I feel that cannot be explained through 100 lines only.
+
+It's the way I could see you holding me right now or I can think of you holding me again by the end of this year or next year or next and so on..
+
+It's the way I only want it to be you. I don't know who deserves what or what not. But for me, I only want it to be you Dhruv.
+
+I want to be the one to wake up next to you in the morning or the one you come back home to. Or the one who will help you wash your hair if you feel lazy or the one who will cook your favourite meal for you, or the one you run to when everything else feels heavy, when nothing gets you, raya surely will.
+
+I've nothing to gift you with money and I know you won't even take it and it wouldn't even be enough.
+
+So I'll give you me, i want you to take me not as a gift haha but as a person who will be like your "hamdard".
+
+Im so grateful to have you dhruvie, it feels as if holding onto my baby boy who just wants me to adore him gently.
+
+Happiest birthday. All i pray is to be able to say this again and again till i die that's what forever is to me.
+
+I give my forever to you.
+
+P.S (thank you mummy for creating this big ah child and i promise I'll take care of himmmm muah)
+
+I love you dhruv, these 3 words are all that raya can say at the end. I burn for you.`;
+
+let index = 0;
+function typeText() {
+    if (index < text.length) {
+        document.getElementById("typedText").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, 25);
+    }
+}
+
+/* Floating hearts generator */
+function heartsInterval() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "🤍";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 500);
+}
+</script>
+
+</body>
+</html>
